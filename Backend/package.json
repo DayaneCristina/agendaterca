@@ -1,0 +1,16 @@
+{
+  "name": "p2",
+  "version": "1.0.0",
+  "description": "Atividade equivalente a nota de 40%",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon src/"
+  },
+  "author": "Dayane Cristina e Bruno Carvalho",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.17.1",
+    "nodemon": "^1.19.4"
+  }
+}
