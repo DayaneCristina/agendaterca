@@ -61,10 +61,12 @@ module.exports = {
      */
     async read(request, response){
         
-        let id = request.query.id;
-        return response.json(id);
+        let email = request.params.email;
+        let senha = request.params.senha;
+        console.log(email+senha)
+        return response.json('read');
         
-        banco.query('SELECT <dados> FROM <tabela> WHERE <condição> = ?',[],(err, result, fields) => {
+        banco.query(`SELECT <dados> FROM <tabela> WHERE <condição> = ?`,[],(err, result, fields) => {
             
         });
     },

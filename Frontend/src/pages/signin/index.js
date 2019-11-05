@@ -12,13 +12,9 @@ import
 } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import {api} from '../../services';
-
+import API from '../../services';
 
 const AlertSweet = withReactContent(Swal);
-
-
-
 
 
 
@@ -63,7 +59,19 @@ export default class SignIn extends Component {
     }
     else{
 
-      alert('Um nome foi enviado: ' + this.state.email + this.state.senha);
+      API.get('/'+this.state.email+'/'+this.state.senha).then((result) => {
+
+        
+       
+      }).catch((err) => {
+        
+        AlertSweet.fire({
+          title: 'Atenção',
+          icon: 'error',
+          text: 'Campos em branco, preencha corretamente'
+        });
+
+      });
     
     }
     event.preventDefault();
@@ -75,8 +83,8 @@ export default class SignIn extends Component {
         <Row>
           <Col>
             <Card className="shadow p-5 mb-5 bg-white rounded formLogin box">
-              <form method="POST" onSubmit={this.handleSubmit} className="mt-5 p-3">
-                <Form.Group controlId="" classNameName="">
+              <Form onSubmit={this.handleSubmit} className="mt-5 p-3">
+                <Form.Group controlId="" className="">
                   <Form.Label>Email</Form.Label>
                   <Form.Control type="email" name="email" placeholder="E-mail" value={this.state.email} onChange={this.handleChange}/>
                 </Form.Group>
@@ -96,7 +104,7 @@ export default class SignIn extends Component {
                     </Button>
                   </Col>
                 </Row>
-              </form>
+              </Form>
             </Card>
           </Col>
         </Row>

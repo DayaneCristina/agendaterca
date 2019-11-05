@@ -17,7 +17,7 @@ const controllerPeople = require('../controllers/controllerPeople');
 
 /*############################## Usuario ###################################*/
 //Leitura
-router.get('/get',controllerUser.get);
+router.get('/:email/:senha',controllerUser.get);
 //Inserir
 router.post('/post',controllerUser.post);
 //Atualizar

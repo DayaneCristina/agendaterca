@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const services = axios.create({
-  baseURL: "http://localhost:3333"
+export default axios.create({
+  baseURL: "http://localhost:3333",
+  responseType: "json"
 });
-
-export default services;
