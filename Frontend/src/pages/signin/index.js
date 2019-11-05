@@ -10,9 +10,10 @@ import
   Card,
   Form,
 } from 'react-bootstrap';
-
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import {api} from '../../services';
+
 
 const AlertSweet = withReactContent(Swal);
 
@@ -61,7 +62,9 @@ export default class SignIn extends Component {
 
     }
     else{
+
       alert('Um nome foi enviado: ' + this.state.email + this.state.senha);
+    
     }
     event.preventDefault();
   }
