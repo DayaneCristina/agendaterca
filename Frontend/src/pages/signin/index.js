@@ -11,10 +11,10 @@ import
   Form,
 } from 'react-bootstrap';
 
-//import Swal from 'sweetalert2';
-//import withReactContent from 'sweetalert2-react-content';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
-//const AlertSweet = withReactContent(Swal);
+const AlertSweet = withReactContent(Swal);
 
 
 
@@ -51,10 +51,18 @@ export default class SignIn extends Component {
 
   //Função de SUBMIT
   handleSubmit(event) {
-    if(this.state.email == '' || this.state.senha == ''){
+    if(this.state.email.length === 0 || this.state.senha.length === 0){
+      
+      AlertSweet.fire({
+        title: 'Atenção',
+        icon: 'warning',
+        text: 'Campos em branco, preencha corretamente'
+      });
 
     }
-    alert('Um nome foi enviado: ' + this.state.email + this.state.senha);
+    else{
+      alert('Um nome foi enviado: ' + this.state.email + this.state.senha);
+    }
     event.preventDefault();
   }
 
