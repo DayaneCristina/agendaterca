@@ -28,7 +28,12 @@ export default class SignIn extends Component {
   }
 
   handleChange(event) {
-    this.setState({email: event.target.email, senha: event.target.senha});
+    const target = event.target;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
   }
 
   handleSubmit(event) {
