@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Controller da estrutura
  * 
@@ -5,7 +6,7 @@
  */
 
 //Requisição das models
-const models = require('../models');
+const modelPeople = require('../../models/modelPeople');
 
 module.exports = {
 
@@ -17,7 +18,7 @@ module.exports = {
      * @param {*} response 
      */
     async get(request, response){
-        models.read(request, response);
+        modelPeoples.read(request, response);
     },
 
     /**
@@ -28,7 +29,7 @@ module.exports = {
      * @param {*} response 
      */
     async post(request, response){
-        models.create(request, response);
+        modelPeoples.create(request, response);
     },
 
     /**
@@ -39,7 +40,7 @@ module.exports = {
      * @param {*} response 
      */
     async put(request, response){
-        models.update(request, response);
+        modelPeoples.update(request, response);
     },
 
     /**
@@ -50,6 +51,6 @@ module.exports = {
      * @param {*} response 
      */
     async delete(request, response){
-        models.delete(request, response);
+        modelPeoples.delete(request, response);
     }
 }

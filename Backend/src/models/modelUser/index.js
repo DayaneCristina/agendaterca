@@ -1,12 +1,14 @@
+// @ts-nocheck
 /**
  * Model de manipulação do banco de dados
+ * Especializado no Usuario
  * 
  * Diretorio Pai - src/models
  */
 
 
 //Requerimento de conexão com banco de dados
-const banco = require('../database');
+const banco = require('../../database/index');
 
 module.exports = {
 

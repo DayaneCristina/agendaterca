@@ -10,17 +10,30 @@ const exp = require('express');
 //Configurando Rotas
 const router = exp.Router();
 
-//Requerindo controller
-const controller = require('../controllers');
+//Requerindo controller de Usuario
+const controllerUser = require('../controllers/controllerUser');
+//Requerindo controller de Contatos
+const controllerPeople = require('../controllers/controllerPeople');
 
+/*############################## Usuario ###################################*/
 //Leitura
-router.get('/get',controller.get);
+router.get('/get',controllerUser.get);
 //Inserir
-router.post('/post',controller.post);
+router.post('/post',controllerUser.post);
 //Atualizar
-router.put('/put',controller.put);
+router.put('/put',controllerUser.put);
 //Deletar
-router.delete('/delete',controller.delete);
+router.delete('/delete',controllerUser.delete);
+
+/*############################## Contato ###################################*/
+//Leitura
+router.get('/get',controllerPeople.get);
+//Inserir
+router.post('/post',controllerPeople.post);
+//Atualizar
+router.put('/put',controllerPeople.put);
+//Deletar
+router.delete('/delete',controllerPeople.delete);
 
 //Exportando rotas
 module.exports = router;

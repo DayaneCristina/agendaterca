@@ -10,7 +10,7 @@ const Config = {
         port:3306,
         user:'root',
         pass:'',
-        data:'db_p2'
+        data:'agendaterca'
     },
     Email:{
         host: '',
