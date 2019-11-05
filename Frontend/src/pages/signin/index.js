@@ -61,18 +61,29 @@ export default class SignIn extends Component {
 
       API.get('/'+this.state.email+'/'+this.state.senha).then((result) => {
 
+        if(result.data.length > 0){
+          localStorage.setItem('datauser',JSON.stringify(result.data));
+          this.props.history.push('/home');//Redirecionando para pagina
+        }
+        else{
+
+          AlertSweet.fire({
+            title: 'Atenção',
+            icon: 'error',
+            text: 'Usuario não cadastrado'
+          });
         
+        }
        
       }).catch((err) => {
         
         AlertSweet.fire({
-          title: 'Atenção',
+          title: 'Erro',
           icon: 'error',
-          text: 'Campos em branco, preencha corretamente'
         });
 
       });
-    
+   
     }
     event.preventDefault();
   }

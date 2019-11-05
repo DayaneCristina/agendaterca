@@ -63,11 +63,14 @@ module.exports = {
         
         let email = request.params.email;
         let senha = request.params.senha;
-        console.log(email+senha)
-        return response.json('read');
         
-        banco.query(`SELECT <dados> FROM <tabela> WHERE <condição> = ?`,[],(err, result, fields) => {
-            
+        banco.query(`SELECT
+        (user.id_user) as ID, 
+        (user.name) AS Name, 
+        (user.email) AS Email
+        FROM  user WHERE email = ? AND password = ?;`,[email,senha],(err, result, fields) => {
+            if(err) response.json(false);
+            response.json(result);
         });
     },
 

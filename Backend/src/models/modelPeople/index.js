@@ -64,7 +64,15 @@ module.exports = {
         let id = request.query.id;
         return response.json(id);
         
-        banco.query('SELECT <dados> FROM <tabela> WHERE <condição> = ?',[],(err, result, fields) => {
+        banco.query(`SELECT 
+        sha1(people.id_people), 
+        sha1(people.name), 
+        sha1(people.nickname), 
+        sha1(people.birthday)
+        FROM people_user 
+            INNER JOIN people ON people.id_people = people_user.id_people  
+            INNER JOIN user ON user.id_user = people_user.id_user 
+                WHERE email = ? AND password = ?`,[],(err, result, fields) => {
             
         });
     },
