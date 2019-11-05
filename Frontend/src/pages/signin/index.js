@@ -11,24 +11,37 @@ import
   Form,
 } from 'react-bootstrap';
 
+//import Swal from 'sweetalert2';
+//import withReactContent from 'sweetalert2-react-content';
+
+//const AlertSweet = withReactContent(Swal);
+
+
+
+
+
+
 export default class SignIn extends Component {
 
   constructor(props) {
-    
+    //Definindo props -- OBRIGATORIO MANTER
     super(props);
     
+    //Inputs que será utilizado
     this.state = {
-      email: '',
-      senha:''
+      email: '', 
+      senha: ''
     };
 
+    //Iniciando functions
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  
   }
 
+  //Função de SET do formulario
   handleChange(event) {
     const target = event.target;
+    const value = target.value;
     const name = target.name;
 
     this.setState({
@@ -36,7 +49,11 @@ export default class SignIn extends Component {
     });
   }
 
+  //Função de SUBMIT
   handleSubmit(event) {
+    if(this.state.email == '' || this.state.senha == ''){
+
+    }
     alert('Um nome foi enviado: ' + this.state.email + this.state.senha);
     event.preventDefault();
   }
@@ -50,11 +67,11 @@ export default class SignIn extends Component {
               <form method="POST" onSubmit={this.handleSubmit} className="mt-5 p-3">
                 <Form.Group controlId="" classNameName="">
                   <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" placeholder="E-mail" value={this.state.email} onChange={this.handleChange}/>
+                  <Form.Control type="email" name="email" placeholder="E-mail" value={this.state.email} onChange={this.handleChange}/>
                 </Form.Group>
                 <Form.Group controlId="">
                   <Form.Label>Senha</Form.Label>
-                  <Form.Control type="password" placeholder="Senha" value={this.state.senha} onChange={this.handleChange} />
+                  <Form.Control type="password" name="senha" placeholder="Senha" value={this.state.senha} onChange={this.handleChange} />
                 </Form.Group>
                 <Row>
                   <Col>
