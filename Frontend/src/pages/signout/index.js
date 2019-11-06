@@ -18,7 +18,7 @@ const AlertSweet = withReactContent(Swal);
 
 
 
-export default class SignIn extends Component {
+export default class SignOut extends Component {
 
   constructor(props) {
     //Definindo props -- OBRIGATORIO MANTER
@@ -26,6 +26,7 @@ export default class SignIn extends Component {
     
     //Inputs que será utilizado
     this.state = {
+      nome:'',
       email: '', 
       senha: ''
     };
@@ -59,22 +60,33 @@ export default class SignIn extends Component {
     }
     else{
 
-      API.get('/'+this.state.email+'/'+this.state.senha).then((result) => {
+      API.post('/user/cadastro',
+      {
+          nome  :    this.state.nome,
+          email :    this.state.email,
+          senha :    this.state.senha
+      }
+      ).then((result) => {
 
-        if(result.data.length > 0){
-          localStorage.setItem('datauser',JSON.stringify(result.data));
-          this.props.history.push('/home');//Redirecionando para pagina
+        if(result.data){
+         
+          AlertSweet.fire({
+            title: 'Confirmação',
+            icon: 'success',
+            text: 'Cadastrado com sucesso'
+          });
+
+          this.props.history.push('/');//Redirecionando para pagina
+
         }
         else{
-
+         
           AlertSweet.fire({
-            title: 'Atenção',
+            title: 'Erro',
             icon: 'error',
-            text: 'Usuario não cadastrado'
           });
         
-        }
-       
+        }        
       }).catch((err) => {
         
         AlertSweet.fire({
@@ -96,6 +108,10 @@ export default class SignIn extends Component {
             <Card className="shadow p-5 mb-5 bg-white rounded formLogin box">
               <Form onSubmit={this.handleSubmit} className="mt-5 p-3">
                 <Form.Group controlId="" className="">
+                  <Form.Label>Nome</Form.Label>
+                  <Form.Control type="text" name="nome" placeholder="Nome" value={this.state.nome} onChange={this.handleChange}/>
+                </Form.Group>
+                <Form.Group controlId="" className="">
                   <Form.Label>Email</Form.Label>
                   <Form.Control type="email" name="email" placeholder="E-mail" value={this.state.email} onChange={this.handleChange}/>
                 </Form.Group>
@@ -105,13 +121,13 @@ export default class SignIn extends Component {
                 </Form.Group>
                 <Row>
                   <Col>
-                    <Button variant="primary" href="/Cadastro" size="lg" block>
-                      Cadastrar
+                    <Button variant="primary" href="/" size="lg" block>
+                      Volta
                     </Button>
                   </Col>
                   <Col>
                     <Button variant="primary" type="submit" size="lg" block>
-                      Entrar
+                      Cadastrar
                     </Button>
                   </Col>
                 </Row>

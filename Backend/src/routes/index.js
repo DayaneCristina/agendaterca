@@ -19,7 +19,7 @@ const controllerPeople = require('../controllers/controllerPeople');
 //Leitura
 router.get('/:email/:senha',controllerUser.get);
 //Inserir
-router.post('/post',controllerUser.post);
+router.post('/user/cadastro',controllerUser.post);
 //Atualizar
 router.put('/put',controllerUser.put);
 //Deletar
@@ -27,7 +27,7 @@ router.delete('/delete',controllerUser.delete);
 
 /*############################## Contato ###################################*/
 //Leitura
-router.get('/get',controllerPeople.get);
+router.get('/peoples',controllerPeople.get);
 //Inserir
 router.post('/post',controllerPeople.post);
 //Atualizar

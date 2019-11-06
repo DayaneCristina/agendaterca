@@ -6,7 +6,7 @@
  */
 
 //Requisição das models
-const modelPeople = require('../../models/modelPeople');
+const modelPeoples = require('../../models/modelPeople');
 
 module.exports = {
 

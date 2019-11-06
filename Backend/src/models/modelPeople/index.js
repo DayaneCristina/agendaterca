@@ -61,19 +61,19 @@ module.exports = {
      */
     async read(request, response){
         
+        let email = request.query.email;
         let id = request.query.id;
-        return response.json(id);
-        
+
         banco.query(`SELECT 
-        sha1(people.id_people), 
-        sha1(people.name), 
-        sha1(people.nickname), 
-        sha1(people.birthday)
+        (people.id_people) as ID, 
+        (people.name) as Nome, 
+        (people.nickname) as Sobrenome
         FROM people_user 
             INNER JOIN people ON people.id_people = people_user.id_people  
             INNER JOIN user ON user.id_user = people_user.id_user 
-                WHERE email = ? AND password = ?`,[],(err, result, fields) => {
-            
+                WHERE user.email = ? AND user.id_user = ?`,[email,id],(err, result, fields) => {
+                    if(err) return response.json(false);
+                    return response.json(result);
         });
     },
 

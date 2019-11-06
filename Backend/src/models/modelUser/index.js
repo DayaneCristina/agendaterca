@@ -23,9 +23,14 @@ module.exports = {
      * @return {JSON} 
      */
     async create(request, response){
-        return response.json('create');
-        banco.query('INSERT INTO <tabela> VALUES (?)',[],(err, result, fields) => {
+        
+        let nome = request.body.nome;
+        let email = request.body.email;
+        let senha = request.body.senha;
 
+        banco.query('INSERT INTO user (name,email,password) VALUES (?,?,?)',[nome, email, senha],(err, result, fields) => {
+            if(err) return response.json(false);
+            return response.json(true);
         });
     },
 
