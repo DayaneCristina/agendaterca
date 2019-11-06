@@ -11,11 +11,11 @@ create table people(
 		primary key (id_people)
 );
 
-create table tipy(
-	id_tipy int,
+create table type(
+	id_type int,
     name varchar(255),
-    constraint pk_id_tipy
-		primary key (id_tipy)
+    constraint pk_id_type
+		primary key (id_type)
 );
 
 create table user(
@@ -31,12 +31,12 @@ create table user(
 create table contact(
 	id_contact int auto_increment,
     contact varchar(255),
-    id_tipy int,
+    id_type int,
     constraint pk_id_contato 
 		primary key (id_contact),
-	constraint fk_tipy_contact
-		foreign key (id_tipy)
-			references tipy(id_tipy)
+	constraint fk_type_contact
+		foreign key (id_type)
+			references type(id_type)
 );
 
 create table contact_people(
@@ -61,7 +61,7 @@ create table people_user(
 			references people(id_people)
 );
 
-insert into tipy values 
+insert into type values 
 (1,'E-mail'),
 (2,'Telefone Fixo'),
 (3,'Telefone Celular'),
@@ -99,10 +99,10 @@ SELECT
     people.nickname, 
 	people.birthday,
     contact.contact, 
-    tipy.name
+    type.name
 		FROM  contact_people 
 			INNER JOIN contact ON contact.id_contact = contact_people.id_contact
-			INNER JOIN tipy ON tipy.id_tipy = contact.id_tipy
+			INNER JOIN type ON type.id_type = contact.id_type
 			INNER JOIN people ON people.id_people = contact_people.id_people
             INNER JOIN people_user ON people.id_people = people_user.id_people
 				INNER JOIN user ON user.id_user = people_user.id_user 
