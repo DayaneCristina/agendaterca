@@ -21,6 +21,10 @@ module.exports = {
         modelPeoples.read(request, response);
     },
 
+    async list(request, response){
+        modelPeoples.listRead(request, response);
+    },
+
     /**
      * Metodo de redireciona 
      * para o model de criação
