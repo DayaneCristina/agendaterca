@@ -4,7 +4,7 @@
   "description": "Atividade equivalente a nota de 40%",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon src/"
+    "start": "nodemon src/"
   },
   "author": "Dayane Cristina e Bruno Carvalho",
   "license": "MIT",
