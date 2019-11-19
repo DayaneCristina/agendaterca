@@ -27,7 +27,8 @@ router.delete('/delete',controllerUser.delete);
 
 /*############################## Contato ###################################*/
 //Leitura
-router.get('/peoples',controllerPeople.get);
+router.get('/peoples',controllerPeople.list);
+router.get('/people',controllerPeople.get);
 //Inserir
 router.post('/post',controllerPeople.post);
 //Atualizar
