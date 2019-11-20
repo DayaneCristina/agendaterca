@@ -13,7 +13,8 @@ import {
   Button,
 } from 'react-bootstrap';
 import {
-  Redirect
+  Redirect,
+  Link
 } from 'react-router-dom';
 
 import API from '../../services';
@@ -82,9 +83,11 @@ export default class Main extends Component {
                       </h3>
                     </Col>
                     <Col xs={2} xl={2} sm={12} xs={12} md={12} lg={12}>
-                      <Button variant="success">
-                        Adicionar
+                      <Link to="/people/cadastro">
+                        <Button variant="success">
+                          Adicionar
                       </Button>
+                      </Link>
                     </Col>
                   </Row>
                 </Card.Header>
@@ -102,12 +105,12 @@ export default class Main extends Component {
                           <Col>
                             <Row>
                               <Col xs={6} xl={6} sm={12} xs={12} md={12} lg={12}>
-                                <Button id={contato.ID}  onClick={() => this.handleCustomerClick(contato)} key={contato.ID}>
+                                <Button id={contato.ID} onClick={() => this.handleCustomerClick(contato)} key={contato.ID}>
                                   Visualizar
                                 </Button>
                               </Col>
                               <Col xs={6} xl={6} sm={12} xs={12} md={12} lg={12}>
-                                <Button id={contato.ID}  onClick={() => this.handleCustomerClick(contato)} key={contato.ID} variant="danger">
+                                <Button id={contato.ID} onClick={() => this.handleCustomerClick(contato)} key={contato.ID} variant="danger">
                                   Excluir
                                 </Button>
                               </Col>
