@@ -83,7 +83,7 @@ export default class Main extends Component {
                       </h3>
                     </Col>
                     <Col xs={2} xl={2} sm={12} xs={12} md={12} lg={12}>
-                      <Link to="/people/cadastro">
+                      <Link to="/people">
                         <Button variant="success">
                           Adicionar
                       </Button>
