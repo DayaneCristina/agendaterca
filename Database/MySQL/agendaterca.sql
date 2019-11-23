@@ -36,7 +36,7 @@ insert into people (id_people, name, nickname, birthday, email, phone, id_user) 
 (1,'Bruno','Silva','1998-08-06','bruno@gmail.com','+5513997934483',1),
 (2,'Sergio','Tadeu','1997-09-10','sergio@gmail.com','+5513921321312',1);
 
-SELECT user.* 
+SELECT people.* 
 	FROM people   
         INNER JOIN user ON user.id_user = people.id_user 
 			WHERE user.email = 'dayaneCristina@gmail.com' AND user.password = '12345678';
