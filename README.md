@@ -4,7 +4,7 @@
 <h3>Desenvolvedores</h3>
 <ul>
     <li>Bruno Silva Carvalho RA: 12160062</li>
-    <li>Dayane Cristina RA: </li>
+    <li>Dayane Cristina RA: 12160393</li>
 </ul>
 
 <h3>Estrutura de arquivos</h3>
