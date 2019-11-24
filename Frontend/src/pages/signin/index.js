@@ -110,7 +110,7 @@ export default class SignIn extends Component {
                     </Button>
                   </Col>
                   <Col>
-                    <Button variant="primary" type="submit" size="lg" block>
+                    <Button variant="primary" type="submit" size="lg" block variant="success">
                       Entrar
                     </Button>
                   </Col>

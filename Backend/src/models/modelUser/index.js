@@ -47,9 +47,18 @@ module.exports = {
      * 
      */
     async update(request, response){
-        return response.json('update');
-        banco.query('UPDATE <tabela> SET <coluna> = ? WHERE <condição> = ?',[],(err, result, fields) => {
-            
+
+        let id = request.body.id;
+        let emailAnterior = request.body.email;
+        let name = request.body.data.name;
+        let email = request.body.data.email;
+        let password = request.body.data.password;
+
+        banco.query(`UPDATE user SET name = ?, email = ?, password = ? WHERE id_user = ? and email`,
+        [name,email,password,id,emailAnterior],
+        (err, result, fields) => {
+            if(err) return response.json(err);
+            return response.json(result);    
         });
     },
 
@@ -92,9 +101,11 @@ module.exports = {
      * 
      */
     async delete(request, response){
-        return response.json('delete');
-        banco.query('DELETE FROM <tabela> WHERE <condição> = ?',[],(err, result, fields) => {
-            
+        let id = request.body.id;
+        let email = request.body.email;
+        banco.query('DELETE FROM user WHERE id_user = ? and email = ?',[id, email],(err, result, fields) => {
+            if(err) response.json(false);
+            return response.json(true);
         });
     }
 }

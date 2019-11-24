@@ -27,8 +27,8 @@ module.exports = {
         let name_people = request.body.people.name_people;
         let nickname_people = request.body.people.nickname_people;
         let birthday_people = request.body.people.birthday_people;
-        let email_people = request.body.people.email;
-        let phone_people = request.body.people.phone;
+        let email_people = request.body.people.email_people;
+        let phone_people = request.body.people.phone_people;
         /*
 
         -- Primeiro insert 
@@ -47,11 +47,11 @@ module.exports = {
         (name, nickname, birthday, email, phone, id_user) 
         values 
         (?,?,?,?,?,?)`,
-        [name_people,nickname_people,birthday_people, email_people, phone_people,id_user],
-        (error, result, fields) => {
-            if(error) throw response.json(error);
-            response.json(result);
-        });
+            [name_people, nickname_people, birthday_people, email_people, phone_people, id_user],
+            (error, result, fields) => {
+                if (error) return response.json(error);
+                response.json(result);
+            });
     },
 
 
@@ -68,11 +68,12 @@ module.exports = {
      */
     async update(request, response) {
         let id_user = request.body.user.id_user;
+        let id_people = request.body.people.id_people;
         let name_people = request.body.people.name_people;
         let nickname_people = request.body.people.nickname_people;
         let birthday_people = request.body.people.birthday_people;
-        let email_people = request.body.people.email;
-        let phone_people = request.body.people.phone;
+        let email_people = request.body.people.email_people;
+        let phone_people = request.body.people.phone_people;
         banco.query(`
         UPDATE people SET 
             name = ?,
@@ -80,12 +81,12 @@ module.exports = {
             birthday = ?,
             email = ?,
             phone = ?
-                WHERE id_user = ?`, 
-                [name_people,nickname_people,birthday_people, email_people, phone_people,id_user], 
-                (err, result, fields) => {
-                    if(err) throw response.json(err);
-                    return response.json(result);
-        });
+                WHERE id_user = ? and id_people = ?`,
+            [name_people, nickname_people, birthday_people, email_people, phone_people, id_user, id_people],
+            (err, result, fields) => {
+                if (err) return response.json(err);
+                return response.json(result);
+            });
     },
 
     /**
@@ -113,7 +114,7 @@ module.exports = {
         FROM people 
             INNER JOIN user ON user.id_user = people.id_user 
                 WHERE user.email = ? AND people.id_people = ?`, [email, id], (err, people, fields) => {
-            if (err) return response.json(false);
+            if (err) return response.json(err);
             return response.json(people);
         });
     },
@@ -131,9 +132,11 @@ module.exports = {
      * 
      */
     async delete(request, response) {
-        return response.json('delete');
-        banco.query('DELETE FROM <tabela> WHERE <condição> = ?', [], (err, result, fields) => {
-
+        let id = request.params.people;
+        let user = request.params.user;
+        banco.query('DELETE FROM people WHERE id_people = ? and id_user = ?', [id, user], (err, result, fields) => {
+            if (err) return response.json(false) 
+            return response.json(true);
         });
     },
 

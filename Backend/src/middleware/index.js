@@ -1,7 +1,6 @@
 /**
  * Validador de acesso a API
  */
-
 //Requerimento de configurações
 const config = require('../config');
 

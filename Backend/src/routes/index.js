@@ -19,22 +19,23 @@ const controllerPeople = require('../controllers/controllerPeople');
 //Leitura
 router.get('/:email/:senha',controllerUser.get);
 //Inserir
-router.post('/user/cadastro',controllerUser.post);
+router.post('/user',controllerUser.post);
 //Atualizar
-router.put('/put',controllerUser.put);
+router.put('/user',controllerUser.put);
 //Deletar
-router.delete('/delete',controllerUser.delete);
+router.delete('/user',controllerUser.delete);
 
 /*############################## Contato ###################################*/
-//Leitura
+//Lista de usuarios
 router.get('/peoples',controllerPeople.list);
+//Leitura
 router.get('/people',controllerPeople.get);
 //Inserir
-router.post('/post',controllerPeople.post);
+router.post('/people',controllerPeople.post);
 //Atualizar
-router.put('/put',controllerPeople.put);
+router.put('/people',controllerPeople.put);
 //Deletar
-router.delete('/delete',controllerPeople.delete);
+router.delete('/people/:user/:people',controllerPeople.delete);
 
 //Exportando rotas
 module.exports = router;

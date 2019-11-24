@@ -18,7 +18,7 @@ const AlertSweet = withReactContent(Swal);
 
 
 
-export default class SignOut extends Component {
+export default class SignUp extends Component {
 
   constructor(props) {
     //Definindo props -- OBRIGATORIO MANTER
@@ -60,7 +60,7 @@ export default class SignOut extends Component {
     }
     else{
 
-      API.post('/user/cadastro',
+      API.post('/user',
       {
           nome  :    this.state.nome,
           email :    this.state.email,
@@ -126,7 +126,7 @@ export default class SignOut extends Component {
                     </Button>
                   </Col>
                   <Col>
-                    <Button variant="primary" type="submit" size="lg" block>
+                    <Button variant="primary" type="submit" size="lg" block variant="success">
                       Cadastrar
                     </Button>
                   </Col>
