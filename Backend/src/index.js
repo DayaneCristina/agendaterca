@@ -3,6 +3,7 @@
  * em MVC
  * 
  * Diretorio Pai - /src
+ * QnJ1bm9lZGVtYWlz
  */
 require('dotenv/config');//Variaveis de ambiente
 const express = require('express');
