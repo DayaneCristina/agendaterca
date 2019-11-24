@@ -4,10 +4,10 @@
  * 
  * Diretorio Pai - /src
  */
+require('dotenv/config');//Variaveis de ambiente
 const express = require('express');
 const router = require('./routes');
 const key = require('./middleware');
-
 const app = express();
 
 app.use(express.json());

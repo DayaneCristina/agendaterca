@@ -7,16 +7,16 @@
 //Requisição de depêndencia (MYSQL)
 const mysql = require('mysql');
 
-const config = require('../config');
 /**
  * Criando a conexâo do banco de dados
  */
+// @ts-ignore
 const Banco = mysql.createConnection({
-    host: config.Database.host,
-    port: config.Database.port,
-    user: config.Database.user,
-    password: config.Database.pass,
-    database: config.Database.data
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_NAME,
+    password: process.env.DB_PASS,
+    database: process.env.DB_DATA
 });
 
 /**
