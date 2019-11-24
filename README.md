@@ -1,6 +1,8 @@
 # agendaterca
 
-<center><h1>Agenda Terça</h1></center>
+~~~javascript
+Esta é uma linha de código em Javascript.
+~~~
 
 <h3>Desenvolvedores</h3>
 <ul>
