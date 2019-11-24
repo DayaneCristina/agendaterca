@@ -76,7 +76,7 @@
 <h3>Desenvolvedores</h3>
 <ul>
     <li>Bruno Silva Carvalho RA: 12160062</li>
-    <li>Dayane Cristina RA: </li>
+    <li>Dayane Cristina RA: 12160393</li>
 </ul>
 
 <h4>Data de desenvolvimento: 23/11/2019</h4>
