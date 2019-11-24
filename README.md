@@ -1,5 +1,14 @@
 # agendaterca
 
+
+<h3>Desenvolvedores</h3>
+<ul>
+    <li>Bruno Silva Carvalho RA: 12160062</li>
+    <li>Dayane Cristina RA: </li>
+</ul>
+
+<h3>Estrutura de arquivos</h3>
+
 ~~~
     agendaterca
     ├── backend/
@@ -73,10 +82,13 @@
         └── yarn.lock
 ~~~
 
+<<<<<<< HEAD
 <h3>Desenvolvedores</h3>
 <ul>
     <li>Bruno Silva Carvalho RA: 12160062</li>
     <li>Dayane Cristina RA: 12160393</li>
 </ul>
+=======
+>>>>>>> b877a7cf09a4d9b54bed6ed83a1a5301978f8f12
 
 <h4>Data de desenvolvimento: 23/11/2019</h4>

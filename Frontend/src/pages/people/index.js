@@ -98,7 +98,7 @@ export default class People extends Component {
           AlertSweet.fire({
             title: 'Confirmação',
             icon: 'success',
-            text: 'Cadastrado com sucesso'
+            text: 'Contato atualizado com sucesso'
           });
 
           this.props.history.push('/home');
