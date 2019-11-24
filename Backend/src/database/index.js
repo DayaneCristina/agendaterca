@@ -24,7 +24,7 @@ const Banco = mysql.createConnection({
  */
 Banco.connect((err) => {
     if(err) return console.log(err);
-    console.log('Conectado ao Banco');
+    console.log('Servidor on-line');
 });
 
 module.exports = Banco;

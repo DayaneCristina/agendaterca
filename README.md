@@ -13,8 +13,6 @@
     agendaterca
     ├── backend/
     │   ├── src/
-    │   │   ├── config/
-    │   │   │   └── index.js
     │   │   ├── controllers/
     │   │   │   ├── controllerPeople/
     │   │   │   │   └── index.js
@@ -36,12 +34,10 @@
     │   ├── LICENSE
     │   ├── package.json
     │   ├── package-lock.json
-    │   ├── README.│md
+    │   ├── .env.exemplo
     │   └── yarn.lock
     ├── Database/
     │   └── MySQL/
-    │      ├── agendaterca.mwb
-    │      ├── agendaterca.png
     │      └── agendaterca.sql
     └── backend/
         ├── src/
@@ -82,10 +78,51 @@
         └── yarn.lock
 ~~~
 
-<h3>Desenvolvedores</h3>
-<ul>
-    <li>Bruno Silva Carvalho RA: 12160062</li>
-    <li>Dayane Cristina RA: 12160393</li>
-</ul>
+<h4>Inicializando o projeto</h4>
+<h5>Backend é Database</h5>
+<p>Após baixar o repositorio, e necessario criar o banco com o arquivo agendaterca.sql, logo em seguida configurar as variaveis de ambiente, no diretorio: </p>
+
+~~~
+    Backend/.env.example
+~~~
+<p>Colocar os dados necessarios para conectar ao banco de dados que criou com o passo anterior.</p>
+<p>Com as variaveis de ambiente configuradas, renomei o arquivo:</p>
+
+~~~ 
+    .env.exemple 
+~~~
+<p>para:</p>
+
+~~~ 
+.env 
+~~~
+
+<p>Em seguida execute os seguintes comandos</p>
+
+~~~
+    ...\agendaterca\backend> npm i
+~~~
+
+~~~
+    ...\agendaterca\backend> npm start
+~~~
+
+<p>
+Se tudo der certo, no cmd irá retorna a seguinte mensagem <b>Servidor on-line</b>
+</p>
+
+<h5>Frontend</h5>
+
+<p>Com o Servidor on-line só será necessario agora executar o frontend </p>
+<p>Em seguida execute os seguintes comandos:</p>
+
+~~~
+    ...\agendaterca\frontend> npm i
+~~~
+
+~~~
+    ...\agendaterca\frontend> npm start
+~~~
+
 
 <h4>Data de desenvolvimento: 23/11/2019</h4>
